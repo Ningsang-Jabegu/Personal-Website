@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMC | Register</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- Container to wrap everything -->
+    <div class="container">
+        <header>
+            <div>
+                <img src="images/logo.png" class="logo" alt="logo" height="150" width="150">
+                <h1 class="center f_color"><b>Kathmandu Metropolitant</b> City</h1>
+                <h2 class="center f_color">Municipal Executive Office, Bagmati Province</h2>
+            </div>
+        </header>
+        <!-- Main Navigation-->
+        <nav>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="contact"><a href="contact.html">Contacts</a></li>
+                <li class="gallary"><a href="gallary.html">Gallary</a></li>
+                <li class="register active"><a href="register.html">Register</a></li>
+            </ul>
+
+        </nav><!-- End Navigation-->
+    </div>
+    <!-- End Container-->
+
+    <!-- Main content begins here -->
+
+    <!-- Main content begins here -->
+    <main>
+        <form class="form1">
+            <fieldset>
+                <p class="f">* Please fill the details carefully.</p>
+                <h2 class="center">Details of Natural Person</h2>
+                <h3 class="center white blue_back">Personal Details</h3>
+                <!-- Users full name -->
+                <label>Title</label>
+                <select class="drop-down">
+                    <option>Mr.</option>
+                    <option>Mrs.</option>
+                    <option>Ms.</option>
+                    <option>Prof.</option>
+                    <option>Dr.</option>
+                    <option>Er.</option>
+                    <option>Others</option>
+                </select>
+                <label>First Name :</label>
+                <input type="text" value="First name" class="name personal">
+                <label>Middle Name</label>
+                <input type="text" value="Middle name" class="name personal">
+                <label>Last Name</label>
+                <input type="text" value="Last name" class="name personal"><br><br>
+                <!-- Users date of birth -->
+                <label> Date of Birth</label>
+                <input type="date" value="dob"><br><br>
+                <!-- Users gender -->
+                <label>Gender</label>
+                <input type="radio" value="male" name="user_male" checked>
+                <label>Male</label>
+                <input type="radio" value="female" name="user_female">
+                <label>Female</label><br><br>
+                <label>Status</label>
+                <select class="drop-down">
+                    <option>Married</option>
+                    <option>Single</option>
+                    <option>Devorsed</option>
+                    <option>Complicated</option>
+                    <option>Others</option>
+                </select>
+                <h3 class="center white blue_back">Permanent Address</h3>
+                <label>Country</label>
+                <input type="text" value="Country" name="user_country" class="name address">
+                <label>State/Province</label>
+                <input type="text" value="State" name="user_state" class="name address">
+                <label>District</label>
+                <input type="text" value="District" name="user_district" class="name address">
+                <label>Postal code</label>
+                <input type="text" value="Postal code" name="user_postBox" class="name address">
+                <h3 class="center white blue_back">Current Address</h3>
+                <label>Same as Permanent</label>
+                <input type="checkbox" value="same_address"><br><br>
+                <label>Country</label>
+                <input type="text" value="Country" name="user_country" class="name address">
+                <label>State/Province</label>
+                <input type="text" value="State" name="user_state" class="name address">
+                <label>District</label>
+                <input type="text" value="District" name="user_district" class="name address">
+                <label>Postal code</label>
+                <input type="text" value="Postal code" name="user_postBox" class="name address">
+                <h3 class="center white blue_back">Detail of Family</h3>
+                <label>Father's Name :</label>
+                <input type="text" value="First" class="name personal">
+                <input type="text" value="Middle" class="name personal">
+                <input type="text" value="Last" class="name personal"><br>
+                <label>Mother's Name :</label>
+                <input type="text" value="First" class="name personal">
+                <input type="text" value="Middle" class="name personal">
+                <input type="text" value="Last" class="name personal"><br>
+                <label>Spouse's Name :</label>
+                <input type="text" value="First" class="name personal">
+                <input type="text" value="Middle" class="name personal">
+                <input type="text" value="Last" class="name personal"><br>
+                <h3 class="center white blue_back">Location</h3>
+                <label>From the road street <input type="text" value="street name" name="user_streetName"
+                        class="name address loc">, the distance
+                    of my resident is <input type="number" value="123" class="drop-down"> metres
+                    (approximately).</label>
+                <h3 class="center white blue_back">For Verification</h3>
+                <!-- Mobile No. -->
+                <label>Mobile Number</label>
+                <select class="drop-down flex">
+                    <option>NP</option>
+                    <option>IN</option>
+                    <option>US</option>
+                    <option>UK</option>
+                </select>
+                <input type="number" value="number" ><br>
+                <!-- Email -->
+                <label>E-mail</label>
+                <input type="email" value="abc@som.com" name="user_email" class="flex">
+                <p class="center"> <input type="checkbox" value="agree"> Above mentioned details are true. I bear any
+                    legal action in case of any
+                    false detail of information related to me/us.
+                </p>
+                <center><input type="submit" value="Register">
+                    <input type="reset" value="Reset">
+                </center>
+            </fieldset>
+        </form>
+        <footer>
+            <div class="social">
+
+                <h3>Follow us on:</h3>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-youtube"></a>
+                <p>&copy; :: Copyright 2020</p>
+            </div>
+            <div class="disclamer">
+                <center>
+                    <p>This is not for commercial purpose.</p>
+                </center>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>

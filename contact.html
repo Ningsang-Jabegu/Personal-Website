@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMC | Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- Container to wrap everything -->
+    <div class="container">
+        <header>
+            <div>
+                <img src="images/logo.png" class="logo" alt="logo" height="150" width="150">
+                <h1 class="center f_color"><b>Kathmandu Metropolitant</b> City</h1>
+                <h2 class="center f_color">Municipal Executive Office, Bagmati Province</h2>
+            </div>
+        </header>
+        <!-- Main Navigation-->
+        <nav>
+
+            <ul>
+                <li class="home"><a href="index.html">Home</a></li>
+                <li class="active contact"><a href="contact.html">Contacts</a></li>
+                <li class="gallary"><a href="gallary.html">Gallary</a></li>
+                <li class="register"><a href="register.html">Register</a></li>
+            </ul>
+
+        </nav><!-- End Navigation-->
+    </div>
+    <!-- End Container-->
+
+    <!-- Main content begins here -->
+    <!-- Main content begins here -->
+    <main>
+        
+        <h2 class="center">Want to explore Nepal:</h2>
+        <!-- Form starts from here -->
+        <form action="/signup" method="post">
+            <fieldset>
+                <img src="images/namaskar.png" alt="hello" class="hello">
+                <legend> Book your guide</legend>
+                <label>Enter your full name</label>
+                <input type="text" name="name">
+                <label> Enter your email</label>
+                <input type="email" name="email">
+                <label> Enter your phone</label>
+                <input type="tel" name="phone">
+                <label>Select your gender</label>
+                <input type="radio" name="gender" value="male" checked>Male
+                <input type="radio" name="gender" value="female">Female<br><br>
+                <label> How should we contact you?</label>
+                <select id="select_contact" onchange="contact()">
+                    <option selected disabled>Select contact</option>
+                    <option value="email" id="option_email">Email</option>
+                    <option value="phone" id="option_phone">Phone</option>
+                    <option value="Fax" id="option_fax">Fax</option>
+                </select>
+                <div id="hide-unhide">
+                </div>
+                <label>Comment here and feedback</label>
+                <textarea rows="5" cols="30"></textarea>
+                <input type="submit" value="Book">
+                <input type="reset" value="Reset">
+            </fieldset>
+        </form>
+        <!-- Form ends here -->
+        <h2>Contact us:</h2>
+        <h4>Phone: +977-14******</h4>
+        <h4>Fax: +977- 14265</h4>
+        <h4>Email 1: mayor@kathmandu.gov.np </h4>
+        <h4>Email 2: ceo@kathmandu.gov.np</h4>
+    </main>
+    <!-- Main content ends here -->
+    <footer>
+        <div class="social">
+
+            <h3>Follow us on:</h3>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-youtube"></a>
+            <p>&copy; :: Copyright 2020</p>
+        </div>
+        <div class="disclamer">
+                <p>This is not for commercial purpose.</p>
+        </div>
+    </footer>
+    <script src="mini.js"></script>
+</body>
+
+</html>
