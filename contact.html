@@ -55,20 +55,32 @@
           <legend>Book your guide</legend>
           <label>Enter your full name</label>
           <input type="text" name="name" />
-          <label> Enter your email</label>
-          <input type="email" name="email" />
-          <label> Enter your phone</label>
-          <input type="tel" name="phone" />
           <label>Select your gender</label>
           <input type="radio" name="gender" value="male" checked />Male
           <input type="radio" name="gender" value="female" />Female<br /><br />
-          <label> How should we contact you?</label>
-          <select id="select_contact" onchange="contact()">
+          <!--<label> How should we contact you?</label>
+          <select id="select_contact" onchange="displaySelectedOption()">
             <option selected disabled>Select contact</option>
-            <option value="email" id="option_email">Email</option>
-            <option value="phone" id="option_phone">Phone</option>
+            <option value="Email" id="option_email">Email</option>
+            <option value="Phone" id="option_phone">Phone</option>
             <option value="Fax" id="option_fax">Fax</option>
-          </select>
+          </select>-->
+          <div class="selectmenu" id="select_contact">
+            <label>How should we contact you?</label>
+                <select id="contact-select" onchange="displaySelectedOption()">
+                    <option id="option-default" value="Select One" selected>Select One</option>
+                    <option id="option-email" value="Email">Email</option>
+                    <option id="option-phone" value="Phone">Phone</option>
+                </select>
+            </div>
+          <div id="email">
+            <label>Email</label>
+            <input id="email-input" type="email" name="email" placeholder="volunteer@astepawayfromhome.com">
+        </div>
+        <div id="phone">
+            <label>Phone Number</label>
+            <input id="phone-input" type="tel" name="phone_number" placeholder="888-888-8888">
+        </div>
           <div id="hide-unhide"></div>
           <label>Comment here and feedback</label>
           <textarea rows="5" cols="30"></textarea>
@@ -97,5 +109,6 @@
       </div>
     </footer>
     <script src="mini.js"></script>
+    <script src="show_hide.js"></script>
   </body>
 </html>

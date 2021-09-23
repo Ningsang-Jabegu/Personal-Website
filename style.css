@@ -441,3 +441,10 @@ figcaption {
   float: right;
   cursor: pointer;
 }
+/*involved contact form*/
+#email {
+  display: none;
+}
+#phone {
+  display: none;
+}
