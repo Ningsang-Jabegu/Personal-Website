@@ -1,128 +1,125 @@
-$(document).ready(function(){
-        
-        /* Open lightbox on click */
-    $('.lightbox-toggle').click(function(){
-        $('.backdrop').animate({'opacity':'.50'}, 300, 'linear').css('visiblity', 'visible');
-        $('.box').fadeIn();
-    
-        //Check if lightbox has an image
-        if ($('.box').contents('img')) {
-            $('.box').contents().remove('img'); //If true, clear image
-        }
-    
-        //Get text content in attribute
-        var $altvalue = $(this).attr('alt'); //or var altvalue = $(this).attr('alt');
-    
-        if ($altvalue == "photo1") {
-            var img = $('#photo:nth-child(1) img').clone(); //Duplicate DOM element
-            $('.box').append(img); //Insert duplicated element in another element
-        }
-    });
-    
-    /* Click to close lightbox */
-    $('.close, .backdrop').click(function(){
-        $('.backdrop').animate({'opacity':'0'}, 300, 'linear', function(){
-            $('.backdrop').css('visiblity', 'hidden');
-        });
-        $('.box').fadeOut();
-    });
-    
-    });
+/* This is for image display while user upload's image file in registration form (pop up) */
+/* This section is for profile picture */
+const image_input1 = document.querySelector("#image-input1");
+image_input1.addEventListener("change", function () {
+  const reader1 = new FileReader();
+  reader1.addEventListener("load", () => {
+    const uploaded_image1 = reader1.result;
+    document.querySelector(
+      "#display-image1"
+    ).style.backgroundImage = `url(${uploaded_image1})`;
+  });
+  reader1.readAsDataURL(this.files[0]);
+});
 
+/* This section is for sign image */
+const image_input2 = document.querySelector("#image-input2");
+image_input2.addEventListener("change", function () {
+  const reader2 = new FileReader();
+  reader2.addEventListener("load", () => {
+    const uploaded_image2 = reader2.result;
+    document.querySelector(
+      "#display-image2"
+    ).style.backgroundImage = `url(${uploaded_image2})`;
+  });
+  reader2.readAsDataURL(this.files[0]);
+});
 
-var photos = [];
-var fileNames = [];
-var imageList = [];
-var image;
-var openList = "<li id='photo' class='lightbox-toggle'>";
-var closeList = "</li>";
-var openCaptionTag ="<figcaption>";
-var closeCaptionTag ="</figcaption>";
-var openDescTag ="<p class='discription'onclick='myFunction()'>";
-var closeDescTag ="</p>";
-var captionTexts =[];
-var descTexts =[];
-for (var i=0; i<10; i++) {
-        fileNames.push("photo"+(i+1));
-        photos.push("<img src ='images/"+fileNames[i]+".jfif' class='image lightbox-toggle'alt='"+fileNames[i]+"' >");
-        captionTexts.push("Boudhanath Stupa","Kathmandu City","Thamel","Pashupatinath Temple","Local Store","White Gumba","Durbar Square","Dal Bhat","Lord Buddha Statue","Baba Ji");
-        descTexts.push("This is Boudhanath Stupa: an arial view.","This is Kathmandu City: an arial view.","This is Thamel: a street view.","Pashupatinath temple: World heritage site","This is local store: an local view.","This is White Gumba: a corner view."
-        ,"This is Durbar Square: a front view.","This is Dal Bhat: a local food.","This is statue of lord Buddha: a side view.","They are baba ji: a view.");
-        image = openList + photos[i]+ openCaptionTag +captionTexts[i]+ closeCaptionTag+openDescTag+descTexts[i]+closeDescTag+ closeList;
-        imageList.push(image);
+/* This section is for the auto age calculation */
+function formatDate(date) {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
 }
 
-document.getElementById("album").innerHTML = imageList;
-
-// Info Box   
-function myFunction() {
-        var OpenHeadingTag ="<h3 id='heading'>";
-        var closeHeadingTag ="</h3>";
-        var heading = [
-                "Boudhanath Stupa",
-                "Kathmandu City",
-                "Thamel",
-                "Pashupatinath Temple",
-                "Local Store",
-                "White Gumba",
-                "Durbar Square",
-                "Dal Bhat",
-                "Lord Buddha Statue",
-                "Baba Ji"
-        ];
-        var openTextInfoTag ="<p id='textInfo'>";
-       var textInfo = ["This is Boudhanath Stupa: an arial view.",
-        "This is Kathmandu City: an arial view.",
-        "This is Thamel: a street view.",
-        "Pashupatinath temple: World heritage site",
-        "This is local store: an local view.",
-        "This is White Gumba: a corner view.",
-        "This is Durbar Square: a front view.",
-        "This is Dal Bhat: a local food.",
-        "This is statue of lord Buddha: a side view.",
-        "They are baba ji: a view."];
-        var closeTextInfoTag ="</p>";
-        var opentextLinkTag ="<p id='textLink' onclick='myFunction1()'>";
-        var textLink = [];
-        var closeTextLinkTag ="</p>";
-        var inforBox;
-        var head;var text;
-        textLink.push("Click this to close");
-        for (var i=0; i<10; i++) { 
-                heading[i] = head;
-                textInfo[i] = text;
-                if(i>=0) {
-                inforBox = OpenHeadingTag + head +closeHeadingTag +openTextInfoTag +text +
-                closeTextInfoTag + opentextLinkTag + textLink + closeTextLinkTag; 
-                document.getElementById("infoBox").style.visibility ="visible";
-                document.getElementById("infoBox").innerHTML = inforBox;
-                }
-        } 
-      }
-function myFunction1() {
-        document.getElementById("infoBox").style.visibility ="hidden";
+function getAge(dateString) {
+  var birthdate = new Date().getTime();
+  if (
+    typeof dateString === "undefined" ||
+    dateString === null ||
+    String(dateString) === "NaN"
+  ) {
+    // variable is undefined or null value
+    birthdate = new Date().getTime();
+  }
+  birthdate = new Date(dateString).getTime();
+  var now = new Date().getTime();
+  // now find the difference between now and the birthdate
+  var n = (now - birthdate) / 1000;
+  if (n < 604800) {
+    // less than a week
+    var day_n = Math.floor(n / 86400);
+    if (
+      typeof day_n === "undefined" ||
+      day_n === null ||
+      String(day_n) === "NaN"
+    ) {
+      // variable is undefined or null
+      return "";
+    } else {
+      return day_n + " day" + (day_n > 1 ? "s" : "") + " old";
+    }
+  } else if (n < 2629743) {
+    // less than a month
+    var week_n = Math.floor(n / 604800);
+    if (
+      typeof week_n === "undefined" ||
+      week_n === null ||
+      String(week_n) === "NaN"
+    ) {
+      return "";
+    } else {
+      return week_n + " week" + (week_n > 1 ? "s" : "") + " old";
+    }
+  } else if (n < 31562417) {
+    // less than 24 months
+    var month_n = Math.floor(n / 2629743);
+    if (
+      typeof month_n === "undefined" ||
+      month_n === null ||
+      String(month_n) === "NaN"
+    ) {
+      return "";
+    } else {
+      return month_n + " month" + (month_n > 1 ? "s" : "") + " old";
+    }
+  } else {
+    var year_n = Math.floor(n / 31556926);
+    if (
+      typeof year_n === "undefined" ||
+      year_n === null ||
+      String(year_n) === "NaN"
+    ) {
+      return (year_n = "");
+    } else {
+      return year_n + " year" + (year_n > 1 ? "s" : "") + " old";
+    }
+  }
 }
 
-// dropdown menu
-function contact() {
-     var select_content = document.getElementById ("select_contact");
-     var hideUnhide = document.getElementById("hide-unhide");
-     hideUnhide.value = select_content.options[select_content.selectedIndex].value;   
-var getEmailLabel = "<label>Enter your Email</label>";
-var getEmailBox = "<input type='email' value='email_address'>";
-var getPhoneLabel = "<label>Enter your phone</label>";
-var getPhoneBox = "<input type='number' value='phone_number'>";
-var getFaxLabel = "<label>Enter your fax</label>";
-var getFaxBox = "<input type='text' value='fax_number'>";
-if (hideUnhide.value == Email) {
-        document.getElementById("hide-unhide") = getEmailLabel + getEmailBox;
-} else if (hideUnhide.value == Phone) {
-        document.getElementById("hide-unhide") = getPhoneLabel + getPhoneBox;
+function getAgeVal(pid) {
+  var birthdate = formatDate(document.getElementById("txtbirthdate").value);
+  var count = document.getElementById("txtbirthdate").value.length;
+  if (count == "10") {
+    var age = getAge(birthdate);
+    var str = age;
+    var res = str.substring(0, 1);
+    if (res == "-" || res == "0") {
+      document.getElementById("txtbirthdate").value = "";
+      document.getElementById("txtage").value = "";
+      $("#txtbirthdate").focus();
+      return false;
+    } else {
+      document.getElementById("txtage").value = age;
+    }
+  } else {
+    document.getElementById("txtage").value = "";
+    return false;
+  }
 }
-else {
-        document.getElementById("hide-unhide") = getFaxLabel + getFaxBox;
-}
-}
-
-
-        

@@ -1,0 +1,88 @@
+@media screen and (min-width: 901px) {
+    header{
+        display: none;
+    }
+    .indexHeaderDiv1, .indexHeaderDiv2 {
+        padding: .5em 1em .5em 1em;
+    }
+    .flex {
+        display: flex;
+    }
+    .IENBootcamp {
+        height: 8em;
+        border: 2px solid transparent;
+        margin: 1.5em ;
+    }
+}
+@media screen and (max-width: 899px) and (min-width: 800px) {
+    .myPic {
+        margin-top: 2em;
+    }
+}
+@media screen and (max-width: 799px) and (min-width: 601px) {
+    .myPic {
+        margin-top: 3.2em;
+    }
+}
+@media screen and (max-width: 900px) and (min-width: 601px) {
+    header{
+        display: none;
+    }
+    .indexHeaderDiv1, .indexHeaderDiv2 {
+        padding: .5em 1em .5em 1em;
+    }
+    .flex {
+        display: flex;
+    }
+    .IENBootcamp {
+        height: 5em;
+        border: 2px solid transparent;
+        margin: 1.5em ;
+    }
+}
+@media screen and (max-width: 600px) and (min-width: 301px) {
+    .indexHeaderDiv1, .indexHeaderDiv2 {
+        padding: .5em 1em .5em 1em;
+    }
+    .IENBootcamp {
+        height: 5em;
+        border: 2px solid transparent;
+        margin: 3vw ;
+    }
+    .center {
+        display: block;
+        margin: auto;
+    }
+    .flex {
+        display: block;
+    }
+}
+@media screen and (max-width: 300px) and (min-width: 1px){
+    header{
+        display: none;
+    }
+    .indexHeaderDiv1, .indexHeaderDiv2 {
+        padding: .5em 1em .5em 1em;
+    }
+    .IENBootcamp {
+        width: 90vw;
+    }
+    .center {
+        display: block;
+        margin: auto;
+    }
+    .flex {
+        display: block;
+    }
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}
